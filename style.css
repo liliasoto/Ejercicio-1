@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+/* Importa la fuente "Poppins" desde Google Fonts con diferentes grosores de peso (100 a 600). */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+/* 
+1. Elimina los márgenes y rellenos predeterminados en todos los elementos.
+2. Usa `box-sizing: border-box` para que el tamaño de los elementos incluya bordes y relleno.
+3. Quita la subrayado de los enlaces y elimina bordes y contornos en elementos como botones y enlaces.
+4. Aplica la fuente 'Poppins' a todos los elementos de la página.
+*/
+
+html{
+    font-size: 62.5%;
+}
+/* Establece el tamaño base del texto en 62.5%, lo que facilita el uso de `rem` (1rem = 10px). */
+
+body{
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: white;
+    color: black;
+}
+/* 
+1. El `body` ocupa el 100% del ancho de la página.
+2. `height: 100vh` asegura que el cuerpo ocupe toda la altura visible de la pantalla.
+3. `overflow-x: hidden` previene el desbordamiento horizontal.
+4. Establece el fondo blanco y el texto en color negro.
+*/
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    margin-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 9%;
+    background-color: transparent;
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.3);
+}
+/* 
+1. `display: flex` alinea los elementos internos en línea, centrando el contenido y separando los elementos.
+2. `z-index: 100` asegura que el encabezado esté por encima de otros elementos en la página.
+3. `position: fixed` mantiene el encabezado fijo en la parte superior de la pantalla.
+4. `top: 0` y `left: 0` colocan el encabezado en la parte superior izquierda.
+5. Ocupa el 100% del ancho de la página.
+6. `padding: 1rem 9%` agrega espacio interno alrededor del contenido, con un margen de 1rem arriba y abajo, 9% a los lados izquierdo y derecho.
+7. `box-shadow` añade una sombra sutil para dar un efecto flotante.
+*/
+
+/*
+BOX SHADOW box-shadow: h-offset v-offset blur-radius spread-radius color;
+    horizontal: +derecha -izquierda
+    vertical: +abajo -arriba
+    blur: Especifica el radio de desenfoque de la sombra. Cuanto mayor sea el número, más difusa será la sombra.
+    spread: Especifica cuánto se expande o se contrae la sombra. Un valor positivo aumenta el tamaño de la sombra, mientras que un valor negativo la reduce.
+*/
+
+.logo{
+    font-size: 3rem;
+    color: #d34c9b;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+/* 
+1. `font-size: 3rem` establece el tamaño de la fuente para el logo.
+3. `font-weight: 800` lo hace más grueso.
+4. `cursor: pointer` cambia el cursor a mano al pasar sobre el logo.
+5. `transition: 0.5s ease` suaviza las transiciones en los cambios de estilo.
+*/
+
+.logo:hover{
+    transform: scale(1.1);
+}
+/* 
+1. Cuando se pasa el cursor sobre el logo, se agranda en un 10% (`scale(1.1)`).
+*/
+
+nav a{
+    font-size: 1.8rem;
+    color: black;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+/* 
+1. Los enlaces dentro del `nav` tienen un tamaño de fuente de 1.8rem.
+2. El color del texto de los enlaces es negro.
+3. Se aplica un margen izquierdo de 4rem para espaciar los enlaces entre sí.
+4. `font-weight: 500` da un grosor medio al texto.
+5. `transition: 0.3s ease` suaviza los cambios de estilo.
+6. `border-bottom: 3px solid transparent` agrega un borde inferior invisible que aparecerá al pasar sobre el enlace.
+*/
+
+nav a:hover,
+nav a.active{
+    color: #d34c9b;
+    border-bottom: 3px solid #d34c9b;
+}
+/* 
+1. Cambia el color de los enlaces a rosa (#d34c9b) cuando el cursor pasa sobre ellos o si el enlace está activo.
+2. El borde inferior transparente se vuelve visible con el mismo color rosa.
+*/
+
+@media(max-width:995px){
+    nav{
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 40%;
+        border-left: 3px solid #d34c9b;
+        border-bottom: 3px solid #d34c9b;
+        border-bottom-left-radius: 2rem;
+        padding: 1rem solid;
+        background-color: #161616;
+        border-top: 0.1rem solid rgba(0,0,0,0.1);
+    }
+    /* 
+    1. Para pantallas más pequeñas (menos de 995px de ancho), el `nav` se vuelve absoluto y está oculto por defecto.
+    2. Se posiciona en la esquina superior derecha, ocupando el 40% del ancho de la pantalla.
+    3. Tiene bordes rosa (#d34c9b) en los lados izquierdo e inferior, con esquinas redondeadas.
+    4. El fondo del menú es negro (#161616) y se aplica un ligero borde en la parte superior.
+    */
+
+    nav.active{
+        display: block;
+    }
+    /* Cuando el `nav` tiene la clase `active`, se muestra. */
+
+    nav a{
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+    /* Los enlaces en el `nav` se muestran como bloques con mayor tamaño de fuente y márgenes grandes. */
+
+    nav a:hover,
+    nav a.active{
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid #d34c9b;
+    }
+    /* Los enlaces activos o al pasar el cursor tienen un borde inferior más grueso y esquinas redondeadas. */
+}
+
+section{
+    min-height: 90vh;
+    padding: 5rem 9%;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    background-color: white;
+}
+
+.home .home-content h1{
+    font-size: 6rem;
+    font-weight: 600;
+}
+
+span{
+    color: #d34c9b;
+}
+
+.home-content h3{
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.home-content p{
+    font-size: 1.6rem;
+}
+
+.home-img img {                    
+    width: 32vw;                      
+    border-radius: 50%;               
+    transition: 0.2s linear; 
+    /* Define una transición suave que durará 0.2 segundos con un efecto lineal al cambiar propiedades del elemento (como hover) */
+}
+
+.social-icons a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 0.2rem solid #d34c9b;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease;
+    color: #d34c9b;
+}
+
+.social-icons a:hover{
+    color: white;
+    transform: scale(1.3) translateY(-5px); 
+    /* Aplica una transformación que escala el enlace al 130% de su tamaño original y lo desplaza hacia arriba 5 píxeles en el eje Y */
+    background-color: #d34c9b;
+    box-shadow: 0  0 25px #d34c9b;
+}
+
+.btn{
+    padding: 1rem 2.8rem;
+    background-color: white;
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: #d34c9b;
+    font-weight: 600;
+    border: 2px solid #d34c9b;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover{
+    transform: scale(1.03);
+    background-color: #d34c9b;
+    color: white;
+    box-shadow: 0 0 25px #d34c9b;
+}
+
+.typing-text{
+    font-size: 34px;
+    font-weight: 600;
+}
+
+.typing-text span{
+    position: relative;
+    /*
+        Cuando aplicas position: relative; a un elemento, este mantiene su posición en el flujo normal del documento. 
+        Esto significa que otros elementos seguirán considerándolo en el mismo lugar, como si no estuviera posicionado.
+    */
+}
+
+.typing-text span::before{
+    content: "Desarrolladora de software"; /* No aparece pero se necesita */
+    color: #d34c9b;
+    animation: words 20s infinite;
+    /* Aplica una animación llamada "words" que durará 20 segundos y se repetirá infinitamente. */
+}
+
+.typing-text span::after{
+    content: "";
+    background-color: white;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid white;
+    animation: cursor 0.6s infinite;
+}
+
+footer {
+    background-color: white;
+    color: black;
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+@keyframes cursor{
+    to{
+        border-left: 3px solid #d34c9b;
+    }
+}
+/* To es un atajo en @keyframes que representa el estado final de la animación. Se puede usar en lugar de 100% */
+
+@keyframes words{
+    0%, 20%{
+        content: "Desarrolladora Web";
+    }
+    21%, 40%{
+        content: "Diseñadora UX";
+    }
+    41%, 60%{
+        content: "Desarrolladora de SQL";
+    }
+    61%, 80%{
+        content: "Programadora Mobile";
+    }
+    81%, 100%{
+        content: "Data Scientist";
+    }
+}
+
+@media (max-width: 1000px){
+    .home{
+        gap: 4rem;
+    }
+}
+
+@media(max-width:995px){
+    .home{
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+
+    .home .home-content h3{
+        font-size: 2.5rem;
+    }
+
+    .home-content h1{
+        font-size: 5rem;
+    }
+
+    .home-img img{
+        width: 70vw;
+        margin-top: 4rem;
+    }
+}
